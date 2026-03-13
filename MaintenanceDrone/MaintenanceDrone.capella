@@ -5316,6 +5316,16 @@
                   <languages>capella:linkedText</languages>
                 </ownedSpecification>
               </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="d7376872-d3ab-45da-b8bc-69fe87e61fc0" name="Safe landing time"
+                  summary="≤ 30 s from trigger" constrainedElements="#93162bf6-ada0-4ef3-9bcf-d40e83114506">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="43e8b82c-5684-4b0d-ac84-675529e52579">
+                  <bodies>&amp;le; 30 s from trigger&#xD;
+</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="db70ca63-68c5-4b29-87b2-5dd88512da7b" targetElement="#c23d37b3-bcc3-4f1e-b6fc-dd943cf7b992"
                   sourceElement="#93162bf6-ada0-4ef3-9bcf-d40e83114506"/>
@@ -5325,12 +5335,59 @@
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="44c9484e-32fa-42df-93b9-1c493e914a80" name="Obstacle Detection">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="c027349a-45d5-414a-80b7-e0852cd63ee8" name="Detection range"
+                  summary="≥ 1 m ahead of drone" constrainedElements="#44c9484e-32fa-42df-93b9-1c493e914a80">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="e6199bef-53f7-4b2f-bc5c-6018f607cbf6">
+                  <bodies>&amp;ge; 1 m ahead of drone</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="b7e097a3-e790-4cf7-9bd7-8da6c3530a4a" name="Detection latency"
+                  summary="&lt; 200 ms" constrainedElements="#44c9484e-32fa-42df-93b9-1c493e914a80">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="f2bc40d8-e41a-4846-b44a-7b61055bbb74">
+                  <bodies>&amp;lt; 200 ms</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="962da9ee-c5d4-48bc-aa1e-53d1536d1b2d" name="Minimim detectable size"
+                  summary="5cm" constrainedElements="#44c9484e-32fa-42df-93b9-1c493e914a80">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="e5af87b8-69b2-4885-9f73-f49af97af220">
+                  <bodies>5cm&#xD;
+</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="267cd1c7-0dfc-4da9-91a7-9e57bbc2f48e" targetElement="#2e23e26a-9971-4fff-8ae6-4e55c96769ef"
                   sourceElement="#44c9484e-32fa-42df-93b9-1c493e914a80"/>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="5ab40064-e1df-40a5-a686-a3bd6217d226" name="Fail-Safe Manager">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="14fe7928-7e4b-451d-a577-ba77be7913ff" name="Fail-safe trigger latency"
+                  summary="&lt; 500 ms upon failure event" constrainedElements="#5ab40064-e1df-40a5-a686-a3bd6217d226">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="a89d2ee9-12d2-457f-b007-ce49aab85255">
+                  <bodies>&amp;lt; 500 ms upon failure event&#xD;
+</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="fc2319d3-c556-4216-b2b4-d8aacc0b28ec" name="System health monitoring rate"
+                  summary="≥ 5 Hz" constrainedElements="#5ab40064-e1df-40a5-a686-a3bd6217d226">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="2c29bf6e-a750-483f-82c4-e044e561f517">
+                  <bodies>&amp;ge; 5 Hz</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="5e1e3cb8-f36e-4026-9923-d4c5e7dc4b4d" targetElement="#c7139610-8c70-462b-8386-aba365144379"
                   sourceElement="#5ab40064-e1df-40a5-a686-a3bd6217d226"/>
@@ -5447,6 +5504,24 @@
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="20e3e9bd-3cb7-4326-98f8-88279711f424" name="Defect Detection">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="18de52d9-da8e-48ca-b7b2-bb4249902015" name="Minimum detectable defect size"
+                  summary="≤ 1 mm" constrainedElements="#20e3e9bd-3cb7-4326-98f8-88279711f424">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="16d034e7-660c-434e-b03a-9a0a542f0012">
+                  <bodies>&amp;le; 1 mm</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="c2ea8878-36c7-4ad7-b7f5-8009d1d3e2e6" name="Defect detection accuracy"
+                  summary="≥ 95% (for Minimum detectable defect size)" constrainedElements="#20e3e9bd-3cb7-4326-98f8-88279711f424">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="14834efc-cb37-4851-a2c1-092621441726">
+                  <bodies>&amp;ge; 95% (for Minimum detectable defect size)</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="1012f25b-2561-4cc3-be02-c4a3d81295a2" targetElement="#7882bdeb-ada0-4d26-b231-66d73bad102d"
                   sourceElement="#20e3e9bd-3cb7-4326-98f8-88279711f424"/>
@@ -5456,6 +5531,24 @@
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="68771a7b-0163-4270-a853-d23f5a69312c" name="Report Generation">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="0e0d1c68-7f2e-43d5-be12-93ac76ed916e" name="Report generation time"
+                  summary="≤ 30 min after inspection completion" constrainedElements="#68771a7b-0163-4270-a853-d23f5a69312c">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="17ae5497-1cf2-4403-80eb-2d2ea4bbdc57">
+                  <bodies>&amp;le; 30 min after inspection completion</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="82bd97e6-0744-4a86-8d01-09089932cebc" name="Report format" summary="Standard MRO-compatible"
+                  constrainedElements="#68771a7b-0163-4270-a853-d23f5a69312c">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="7ba282c0-2f0d-4486-8a5d-de1ccb945e95">
+                  <bodies>Standard MRO-compatible</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="22c878a7-a8f6-47eb-a36e-a0574cc363be" targetElement="#129d7a9c-06b2-412e-a673-e875f3a0339c"
                   sourceElement="#68771a7b-0163-4270-a853-d23f5a69312c"/>
@@ -5516,6 +5609,24 @@
                 name="Maintenance Prediction " abstractType="#b419979b-9bfb-4fbc-a243-434db193e830"/>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="b3d099b2-1e7c-4467-864f-194e4c504543" name="Trend Analysis">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="600426ac-61d5-4c2f-adfb-419d3fe4610a" name="Historical data availability"
+                  summary="≥ 3 years of inspection records" constrainedElements="#b3d099b2-1e7c-4467-864f-194e4c504543">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="5dafeb07-d480-441c-bee1-eccfbbe286eb">
+                  <bodies>&amp;ge; 3 years of inspection records</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="eeb40dc0-fd47-4726-9f39-264fbd041d1a" name="Prediction model accuracy"
+                  summary="≥ 85%" constrainedElements="#b3d099b2-1e7c-4467-864f-194e4c504543">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="daa9d5dd-891a-4f37-9301-6fbeecc51640">
+                  <bodies>&amp;ge; 85%</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="af115e79-d44c-49af-82f4-8d01b87c20ed" targetElement="#5a6dff83-d17d-4f4e-adbb-18db29ade8f5"
                   sourceElement="#b3d099b2-1e7c-4467-864f-194e4c504543"/>
@@ -5555,6 +5666,34 @@
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="67c1e990-6f55-42c1-bd3d-771ef527fb70" name="Secure Storage">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="0c91de45-831a-45e5-8324-c29f8a77161d" name="Data encryption"
+                  summary="AES-256 at rest and in transit" constrainedElements="#67c1e990-6f55-42c1-bd3d-771ef527fb70">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="4491f0ce-cabd-421e-88fa-0c6bf3e31d51">
+                  <bodies>AES-256 at rest and in transit</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="a2e5e794-21f1-46f4-bf1b-d648efec0e1f" name="Data retention period"
+                  summary="≥ 5 years (regulatory compliance)" constrainedElements="#67c1e990-6f55-42c1-bd3d-771ef527fb70">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="307dfc14-115c-4d73-8553-0a2dfcb35532">
+                  <bodies>&amp;ge; 5 years (regulatory compliance)</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="e6bad8d0-c53d-4acb-aeea-be2864e96f7c" name="Traceability index completeness"
+                  summary="100% — every image linked to aircraft zone + timestamp"
+                  constrainedElements="#67c1e990-6f55-42c1-bd3d-771ef527fb70">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="91a578eb-d3c7-4b0d-9cd5-7be901be4737">
+                  <bodies>100% &amp;mdash; every image linked to aircraft zone + timestamp</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="a734177e-5cb5-40ff-96cf-2465fefe6f99" targetElement="#2759fef6-8fdb-4491-9eb9-e08a2accdef3"
                   sourceElement="#67c1e990-6f55-42c1-bd3d-771ef527fb70"/>
