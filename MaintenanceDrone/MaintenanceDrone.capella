@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_7.0.0-->
+<!--Capella_Version_7.0.1-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/7.0.0"
     xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/7.0.0"
@@ -5274,12 +5274,48 @@
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="65c93ea3-92cb-481a-94a6-431e84cedd0c" name="Localization">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="73d522b8-7a8d-4718-a71a-f6b4c128ae60" name="Localization update rate"
+                  summary="≥ 10 Hz" constrainedElements="#65c93ea3-92cb-481a-94a6-431e84cedd0c">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="ff6ec1c7-ed93-48b2-8605-48227ae11640">
+                  <bodies>&amp;ge; 10 Hz</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="51b3f64a-af73-414b-9887-f28768b2c31b" name="Positioning precision"
+                  summary="≤ 2 cm accuracy" constrainedElements="#65c93ea3-92cb-481a-94a6-431e84cedd0c">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="c8eb64a0-ff03-426b-81eb-69a0724e703d">
+                  <bodies>&amp;le; 2 cm accuracy</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="be68eca6-0d64-474f-bcc3-98446bc1a635" targetElement="#fa571e0a-e398-49dd-8d4c-a308e17b7e69"
                   sourceElement="#65c93ea3-92cb-481a-94a6-431e84cedd0c"/>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="93162bf6-ada0-4ef3-9bcf-d40e83114506" name="Flight Control">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="39c53d1b-515a-40aa-ad91-226da26dbd89" name="Stabilized position holding"
+                  summary="± 1 cm during image capture" constrainedElements="#93162bf6-ada0-4ef3-9bcf-d40e83114506">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="41d9bcd1-e7ef-4645-8ab2-edd59882e59b">
+                  <bodies>&amp;plusmn; 1 cm during image capture</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="cafd2575-0bbb-42f3-8c56-acfb5019aecc" name="Trajectory deviation tolerance"
+                  summary="≤ 5 cm from planned path" constrainedElements="#93162bf6-ada0-4ef3-9bcf-d40e83114506">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="16e1f924-4bae-4c34-8b3c-b7b0b99d325d">
+                  <bodies>&amp;le; 5 cm from planned path</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="db70ca63-68c5-4b29-87b2-5dd88512da7b" targetElement="#c23d37b3-bcc3-4f1e-b6fc-dd943cf7b992"
                   sourceElement="#93162bf6-ada0-4ef3-9bcf-d40e83114506"/>
@@ -5304,6 +5340,53 @@
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="7634475b-6216-41b2-9b06-b913d3e5b664" name="Imaging Payload">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="6ae1ca59-bf56-4c1f-8134-fb0b8b20c1d5" name="Image Resolution"
+                  summary="≥ 12 MP (sufficient for mm-level defect detection)" constrainedElements="#7634475b-6216-41b2-9b06-b913d3e5b664">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="2a2279bf-5b08-4095-a0ca-034c698e4a51">
+                  <bodies>&amp;ge; 12 MP&#xD;
+</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="f532ac72-a3fc-47e8-a3a6-6c4d1ece2a51" name="Image overlap" summary="≥ 20% between consecutive captures"
+                  constrainedElements="#7634475b-6216-41b2-9b06-b913d3e5b664">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="fbabe8e7-19d9-4512-97cb-2eb7f31a926e">
+                  <bodies>&amp;ge; 20% between consecutive captures&#xD;
+</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="1e984bbb-c9d2-4ee0-8fcb-21e8453071d2" name="Capture distance to surface"
+                  summary=" 0.5–1.5 m from aircraft skin" constrainedElements="#7634475b-6216-41b2-9b06-b913d3e5b664">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="ce5b0695-f1cc-473d-a03e-8a8117c98516">
+                  <bodies> 0.5&amp;ndash;1.5 m from aircraft skin</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="f4d3a219-02dd-4c4c-87d5-716b960cdb8c" name="Angle accuracy"
+                  summary="± 5° from perpendicular to surface" constrainedElements="#7634475b-6216-41b2-9b06-b913d3e5b664">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="e708c8b8-5fd3-43a5-a711-6286c6e3bec6">
+                  <bodies>&amp;plusmn; 5&amp;deg; from perpendicular to surface</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="5954bc23-2de3-4df1-bbd9-e53188d50260" name="Metadata tagging latency"
+                  summary="&lt; 1s per image" constrainedElements="#7634475b-6216-41b2-9b06-b913d3e5b664">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="3fd10a2f-188d-4c73-993f-c6806729b01b">
+                  <bodies>&amp;lt; 1s per image</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="b970958f-782b-4476-9871-706a0041ff4b" targetElement="#7545cae1-6e03-496b-ad33-47ba568b1dda"
                   sourceElement="#7634475b-6216-41b2-9b06-b913d3e5b664"/>
