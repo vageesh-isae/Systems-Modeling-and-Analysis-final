@@ -1833,6 +1833,9 @@
         <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
             id="3516d187-fbda-40e1-9433-16cc7c2905a4" name="TP_Authority_Input" source="#81730be8-44c8-4d9e-bbde-e12d12969020"
             target="#c6a8d83e-362e-4c32-bf5f-804b7c702cba" kind="FLOW"/>
+        <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+            id="c7658c69-c5a6-401f-ac02-8a7d50ebb16e" name="Mission Parameters" source="#650d3016-ca2c-49e9-b520-5d4a1944e34f"
+            target="#5fdde17d-cf2c-4e24-af4c-85e9df73b584" kind="ASSEMBLY"/>
         <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
             id="83e282f6-efc2-415a-ac03-a0aeaca838b4" name="Automated Aircraft Inspection System">
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
@@ -2272,8 +2275,7 @@
               id="f34c4aa2-06e2-4e8e-ac01-2a8b859319ae" targetElement="#4d0fefdc-9052-4f74-8697-69d14c6b628d"
               sourceElement="#27c7bb6f-aae0-4ac0-a928-a0b25b2de4af"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
-              id="650d3016-ca2c-49e9-b520-5d4a1944e34f" name="Inspection IF" orientation="OUT"
-              kind="FLOW">
+              id="650d3016-ca2c-49e9-b520-5d4a1944e34f" name="RF_OUT" orientation="OUT">
             <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
                 id="1874c434-eec1-435c-b0c6-73469c112b8f" targetElement="#cfdcb021-ecf6-4ba5-9e24-814b42879161"
                 sourceElement="#650d3016-ca2c-49e9-b520-5d4a1944e34f"/>
@@ -2960,8 +2962,6 @@
                 id="7a85e183-fda4-4daf-861e-90258d6517c7" targetElement="#423099b2-1bef-45da-b106-eabfda2f7022"
                 sourceElement="#f6817543-e96c-43d9-af9a-9a8702b017ec"/>
           </ownedFunctions>
-          <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
-              id="2c204b2f-7dcc-483f-b18e-80ce65318009" name="LogicalFunction 14"/>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="f728186e-479d-4d14-88f0-f712d7aa6e68" targetElement="#0ff3fed0-b6d4-49e8-a071-26f92391ea17"
               sourceElement="#5f1840d3-6fd2-4e54-8224-92317000ca49"/>
@@ -4726,7 +4726,7 @@
             id="7d189d01-6e07-4bb6-a794-abe4302f7d37" targetElement="#681f095d-3f11-4da6-b197-af85381521ab"
             sourceElement="#e9e287ce-8003-4079-b470-1631ce55f14e"/>
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="1ca4d2f9-2997-4ddd-98d2-6a551f9fe1ae"
-            name="Logical System" abstractType="#7fa7b515-2af0-4efa-9d9b-1dcf500a8ec5"/>
+            name="Autonomous Aircraft Inspection System" abstractType="#7fa7b515-2af0-4efa-9d9b-1dcf500a8ec5"/>
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="95ecf125-2049-453a-bd8a-85a09c73cd00"
             name="Airline" abstractType="#52da9062-67cf-4aa0-934d-f9839070e539"/>
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="dd9fd3cb-7b8b-4db2-b3d4-db4a0abef0c4"
@@ -4980,8 +4980,12 @@
               id="4854d753-85ff-4042-8b56-17c5433ac2fb" targetElement="#3516d187-fbda-40e1-9433-16cc7c2905a4"
               sourceElement="#0bbd49f3-2a00-463e-ac61-60130708776c"/>
         </ownedComponentExchanges>
+        <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+            id="a3f147d6-a4da-45f1-80f0-0c5ccced8ad8" name="Ground Communication Link"
+            source="#2ae5c5a9-8dea-446c-920e-19b075dcae61" target="#650d3016-ca2c-49e9-b520-5d4a1944e34f"
+            kind="ASSEMBLY"/>
         <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
-            id="7fa7b515-2af0-4efa-9d9b-1dcf500a8ec5" name="Logical System">
+            id="7fa7b515-2af0-4efa-9d9b-1dcf500a8ec5" name="Autonomous Aircraft Inspection System">
           <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
               id="c6ee810b-1648-4792-a883-5f521fdd4448" targetElement="#2d93ee5f-1101-4ef3-998c-8155701f0769"
               sourceElement="#28b5ca16-f90c-4748-a148-847568138316"/>
@@ -5085,8 +5089,8 @@
               id="34cbd7be-b3f7-41a8-8384-f629481afc9e" targetElement="#e73c9aca-582a-4bf6-bb9a-322e79b3d115"
               sourceElement="#039c4cf9-6566-4198-8bbe-81f82ee1c469"/>
           <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
-              id="6aa23527-ec03-4420-b9f4-e11e0a7ff1b5" name="Inspection Images" source="#f952b8ce-80fd-40ca-b4c9-e7ebeb67d75f"
-              target="#cf37d944-345f-44eb-8cdc-e955aa727859" kind="FLOW"/>
+              id="6aa23527-ec03-4420-b9f4-e11e0a7ff1b5" name="Inspection Images" source="#f546a42c-1ef5-4aeb-90b3-e2bd15c1569f"
+              target="#12fee97e-8d6f-400b-a683-964eddb36e9c" kind="FLOW"/>
           <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
               id="366b3507-9356-41b6-9fd1-cad119fddefc" name="Inspection Dataset"
               source="#4cd409d9-5804-49df-a8ba-43de21f11613" target="#de67ce75-d7bb-40cf-b438-4c3748fd9d79"
@@ -5334,7 +5338,7 @@
                 sourceElement="#cb2c05f2-c164-4154-8a12-9cea02cf918a"/>
           </ownedFeatures>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="d1ea635a-17fb-417a-832a-b612a4c7df0b"
-              name="Autonomous Inspection using Drone" abstractType="#452ae5f9-3e9c-4831-9846-57939fd25121"/>
+              name="Autonomous Inspection Drone" abstractType="#452ae5f9-3e9c-4831-9846-57939fd25121"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="6948be8a-7d0e-4423-ad99-f9fa080f429c"
               name="Analysis and Reporting" abstractType="#0b702f78-a043-4475-9c23-f038d09d7893"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="eee2a73d-e5a5-45df-b352-30a777559f6f"
@@ -5343,7 +5347,65 @@
               id="681dd1ae-f539-4853-b0b6-5d028dd57838" targetElement="#83e282f6-efc2-415a-ac03-a0aeaca838b4"
               sourceElement="#7fa7b515-2af0-4efa-9d9b-1dcf500a8ec5"/>
           <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
-              id="452ae5f9-3e9c-4831-9846-57939fd25121" name="Autonomous Inspection using Drone">
+              id="452ae5f9-3e9c-4831-9846-57939fd25121" name="Autonomous Inspection Drone">
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="922b00da-c691-4c0b-a387-a8d78e75422c" name="Motor Control Commands"
+                source="#a1ef03e0-6111-4e3b-9571-6d5df4050199" target="#4683209b-ff3d-4100-a234-2baa6c671492"
+                kind="FLOW"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="cb2eb5b2-e423-4931-bcdd-a3de73023f41" name="Rotor Status Feedback"
+                source="#53b67c6a-7349-4dd9-b5f3-a6b9bfb3bdba" target="#9e87a8df-1382-4164-aa37-8f7e4ad90665"
+                kind="FLOW"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="21743866-695c-44d0-8a6a-30c4ca780c25" name="C 3" source="#9db28814-0bca-4187-b174-2fbbc13a4cab"
+                target="#a1ef03e0-6111-4e3b-9571-6d5df4050199" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="24d59677-3292-4220-803f-bcc469c07f1d" name="Planned Trajectory"
+                source="#2ab66c4c-bd8e-472a-89f4-fa0469035177" target="#a1ef03e0-6111-4e3b-9571-6d5df4050199"
+                kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="8fca5fdf-f219-4666-b8e1-113e3e93b39b" name="Fail Safe Command"
+                source="#a7abb53c-0488-4831-8ca7-120c57aeb71a" target="#8961e802-82dc-4727-8f4f-5fa3be330abb"
+                kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="ec988085-2406-41ee-a4be-8b18b9c8b7a4" name="Low Power Fail Safe Command"
+                source="#ca8cd175-5310-457b-90b4-48efcab75768" target="#a7abb53c-0488-4831-8ca7-120c57aeb71a"
+                kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="6e75f884-63b8-427f-ba9a-b710d9947285" name="Battery Health Status"
+                source="#c89866a4-f785-4f6a-889f-c3b6ceaea219" target="#ae322f88-900e-4de7-b471-68fc9aea57e5"
+                kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="0c7d572d-ff82-43c7-831d-6089e8f684cb" name="Packaged Inspection Data"
+                source="#b9b72d08-5e13-4d6a-95ac-82c182fa385e" target="#15453c83-3ed8-481a-90cf-3de6669e5ba1"
+                kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="97d4d2e0-e923-417d-b4fd-b9acfd3ce495" name="ElectricPower" source="#decf39ea-d950-4695-9a6d-7326a0451fcd"
+                target="#caa9bae0-e307-4e77-bc71-4a1d9c70f900" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="d86c402d-4a16-43d4-8c5a-d47232c38e51" name="ElectricPower" source="#aaa684da-adc7-4981-82b4-88e3ccd034e0"
+                target="#decf39ea-d950-4695-9a6d-7326a0451fcd" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="505f9353-83bf-4214-bbed-79fd80aca58e" name="ElectricPower" source="#9a6d2190-a493-4e03-9f20-63e1d7a53d41"
+                target="#decf39ea-d950-4695-9a6d-7326a0451fcd" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="4edbead7-a216-4182-ae67-9252970a8567" name="ElectricPower" source="#b3f3f78a-29c8-48d4-a8e3-c02465d27f16"
+                target="#decf39ea-d950-4695-9a6d-7326a0451fcd" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="5e3623aa-fd26-4df7-8d2f-964e006cc5a3" name="ElectricPower" source="#decf39ea-d950-4695-9a6d-7326a0451fcd"
+                target="#f802fdff-2020-47fb-a769-ce47aed8a038" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="ac0f0f83-4070-45b3-abc6-7c2dde7ee122" name="ElectricPower" source="#decf39ea-d950-4695-9a6d-7326a0451fcd"
+                target="#e1092ebb-9bc2-414f-ad14-930a9a4b2155" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="a15e445c-b302-477e-9d01-1daeeade1938" name="ElectricPower" source="#decf39ea-d950-4695-9a6d-7326a0451fcd"
+                target="#dd3d70b4-656d-4fa9-8b16-2396987c14ee" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="62bf4805-d9fa-4f91-aabc-c520db9180f9" name="ElectricPower" source="#e9cb45bd-9b1f-4cc9-8295-922aec0334c9"
+                target="#decf39ea-d950-4695-9a6d-7326a0451fcd" kind="ASSEMBLY"/>
+            <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+                id="6910ea38-de56-4fd7-be4a-1c6a016f90b3" name="ElectricPower" source="#decf39ea-d950-4695-9a6d-7326a0451fcd"
+                target="#62f80df4-ea54-4031-9309-53d81a644348" kind="ASSEMBLY"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="78719bf7-ecfd-4bb5-a062-9c48c62e611b"
                 name="Flight Management Unit" abstractType="#5e93ef9d-184f-4ccc-a6b9-c29c41a41989"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="7d9a4abe-3ba1-45b1-804d-2449f9bc505b"
@@ -5356,17 +5418,28 @@
                 name="Safety and Redundancy Manager" abstractType="#5ab40064-e1df-40a5-a686-a3bd6217d226"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="0db253e2-4738-4dc8-875d-0e99d671dcc2"
                 name="Imaging Payload" abstractType="#7634475b-6216-41b2-9b06-b913d3e5b664"/>
-            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="d897e58f-078f-403a-be15-7044a61ab761"
-                name="Propulsion System" abstractType="#28c7f986-1da4-4c20-a8ce-728d746166a0"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="a9da2ec9-5d18-4460-b943-67fed7edf321"
                 name="Power Management System" abstractType="#579c82a4-7109-45a0-b5db-70d11d4438e3"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="10fa8d17-1948-49ba-b32c-a5027a94d584"
                 name="Communication System" abstractType="#550f0168-e82e-4589-81fd-af08681d74e7"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="d897e58f-078f-403a-be15-7044a61ab761"
+                name="Propulsion System" abstractType="#28c7f986-1da4-4c20-a8ce-728d746166a0"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                id="0912860d-f691-4141-9de8-10f611e72b44" name="Inspection Data Out"
+                orientation="IN" kind="FLOW"/>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="5e93ef9d-184f-4ccc-a6b9-c29c41a41989" name="Flight Management Unit">
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="173f1353-daea-4ad1-be18-2ca5f0e42843" targetElement="#90c3d9c4-c4be-45e7-82bb-7dd03a1592c9"
                   sourceElement="#5e93ef9d-184f-4ccc-a6b9-c29c41a41989"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="2ab66c4c-bd8e-472a-89f4-fa0469035177" name="CAN_OUT" orientation="OUT">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="572be100-11cb-4fcb-a907-81debcfb6a92" targetElement="#ce8db98a-b2d9-407f-bcbf-35f90df8942a"
+                    sourceElement="#2ab66c4c-bd8e-472a-89f4-fa0469035177"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="b3f3f78a-29c8-48d4-a8e3-c02465d27f16" name="PWR_IN" orientation="IN"/>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="65c93ea3-92cb-481a-94a6-431e84cedd0c" name="Navigation and Positioning Unit">
@@ -5391,6 +5464,11 @@
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="be68eca6-0d64-474f-bcc3-98446bc1a635" targetElement="#fa571e0a-e398-49dd-8d4c-a308e17b7e69"
                   sourceElement="#65c93ea3-92cb-481a-94a6-431e84cedd0c"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="19308ac7-988e-4c22-be38-5abda1745aac" name="CP 1" orientation="OUT"
+                  kind="FLOW"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="aaa684da-adc7-4981-82b4-88e3ccd034e0" name="PWR_IN" orientation="IN"/>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="93162bf6-ada0-4ef3-9bcf-d40e83114506" name="Flight Controller">
@@ -5428,6 +5506,33 @@
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="0ed38485-a742-4261-aa16-1bad8a3b5316" targetElement="#8ddeee4d-6f2a-4069-b260-b3bc028ae106"
                   sourceElement="#93162bf6-ada0-4ef3-9bcf-d40e83114506"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="9e87a8df-1382-4164-aa37-8f7e4ad90665" name="CAN_IN" orientation="IN"
+                  kind="FLOW">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="0b847bb4-2359-40b6-a5de-440420e676be" targetElement="#46ee17ca-c1c0-470a-962c-6cc0d0ddbb3d"
+                    sourceElement="#9e87a8df-1382-4164-aa37-8f7e4ad90665"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="8961e802-82dc-4727-8f4f-5fa3be330abb" name="UART_IN" orientation="IN">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="507f640b-b623-477d-ab41-709a8899256f" targetElement="#a3ac9d01-4b8b-45db-b793-dfca611ca105"
+                    sourceElement="#8961e802-82dc-4727-8f4f-5fa3be330abb"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="9a6d2190-a493-4e03-9f20-63e1d7a53d41" name="PWR_IN" orientation="IN"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="a1ef03e0-6111-4e3b-9571-6d5df4050199" name="CAN_OUT" orientation="OUT">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="2bdcf909-08f3-4527-8f4c-0b405f6c2cef" targetElement="#c1c98893-f826-408c-9670-42b62c8a1054"
+                    sourceElement="#a1ef03e0-6111-4e3b-9571-6d5df4050199"/>
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="c3428a93-ac57-4795-a221-ce22464dc5c6" targetElement="#caff7fb8-9f5c-43c7-87f6-20711f609db5"
+                    sourceElement="#a1ef03e0-6111-4e3b-9571-6d5df4050199"/>
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="0121e307-ed03-476b-a208-22111eed83f6" targetElement="#7e8e8e00-806d-495e-80d1-13902f365619"
+                    sourceElement="#a1ef03e0-6111-4e3b-9571-6d5df4050199"/>
+              </ownedFeatures>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="44c9484e-32fa-42df-93b9-1c493e914a80" name="Perception Unit">
@@ -5462,6 +5567,15 @@
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="267cd1c7-0dfc-4da9-91a7-9e57bbc2f48e" targetElement="#2e23e26a-9971-4fff-8ae6-4e55c96769ef"
                   sourceElement="#44c9484e-32fa-42df-93b9-1c493e914a80"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="9db28814-0bca-4187-b174-2fbbc13a4cab" name="CAN_OUT" orientation="OUT">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="5d993a3f-55db-4032-ad00-a364ba370246" targetElement="#44fd05f5-c581-4b05-acf4-23d75cf0f7e4"
+                    sourceElement="#9db28814-0bca-4187-b174-2fbbc13a4cab"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="f802fdff-2020-47fb-a769-ce47aed8a038" name="CP 2" orientation="IN"
+                  kind="FLOW"/>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="5ab40064-e1df-40a5-a686-a3bd6217d226" name="Safety and Redundancy Manager">
@@ -5490,6 +5604,27 @@
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="421509de-0509-4ac2-8942-8803443a755c" targetElement="#f4f30bee-0a1d-4b54-9bf3-50764b74a106"
                   sourceElement="#5ab40064-e1df-40a5-a686-a3bd6217d226"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="a7abb53c-0488-4831-8ca7-120c57aeb71a" name="UART_OUT" orientation="IN">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="e945d8d4-42f2-46a6-9a28-3959d751d581" targetElement="#d8961dc7-0106-414c-bf55-0bd3e3e8f9e8"
+                    sourceElement="#a7abb53c-0488-4831-8ca7-120c57aeb71a"/>
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="75446733-e39c-4082-9718-955794d037b4" targetElement="#ed46ad2c-1064-4d20-9bf7-efa68252c62e"
+                    sourceElement="#a7abb53c-0488-4831-8ca7-120c57aeb71a"/>
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="2b469b4e-547e-45ae-a67a-e5705f506833" targetElement="#723ecbf0-36ef-453b-a87b-08879e978955"
+                    sourceElement="#a7abb53c-0488-4831-8ca7-120c57aeb71a"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="c89866a4-f785-4f6a-889f-c3b6ceaea219" name="CP 2" orientation="IN">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="df707333-77dc-4e83-a26d-382be4280918" targetElement="#723ecbf0-36ef-453b-a87b-08879e978955"
+                    sourceElement="#c89866a4-f785-4f6a-889f-c3b6ceaea219"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="62f80df4-ea54-4031-9309-53d81a644348" name="PWR_IN" orientation="IN"
+                  kind="FLOW"/>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="7634475b-6216-41b2-9b06-b913d3e5b664" name="Imaging Payload">
@@ -5523,6 +5658,11 @@
                 <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                     id="b970958f-782b-4476-9871-706a0041ff4b" targetElement="#7545cae1-6e03-496b-ad33-47ba568b1dda"
                     sourceElement="#2321a656-173f-456c-8946-9a8245b9049a"/>
+                <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                    id="dd3d70b4-656d-4fa9-8b16-2396987c14ee" name="CP 1" orientation="IN"
+                    kind="FLOW"/>
+                <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                    id="b9b72d08-5e13-4d6a-95ac-82c182fa385e" name="ETH_OUT" orientation="OUT"/>
               </ownedLogicalComponents>
               <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                   id="e7cbed9b-0d6f-4e17-ae93-87b5148c1c82" name="Camera and Gimbal Unit">
@@ -5561,19 +5701,13 @@
                 <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                     id="f5d81e27-a705-4385-824e-5e42eea9f650" targetElement="#c0717cdf-43ae-478c-ab10-1c1eb14b9577"
                     sourceElement="#e7cbed9b-0d6f-4e17-ae93-87b5148c1c82"/>
+                <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                    id="604faf78-f4f4-40b2-a74b-4acec17d0e90" name="CP 1" orientation="IN"
+                    kind="FLOW"/>
+                <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                    id="e9cb45bd-9b1f-4cc9-8295-922aec0334c9" name="CP 2" orientation="OUT"
+                    kind="FLOW"/>
               </ownedLogicalComponents>
-            </ownedLogicalComponents>
-            <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
-                id="28c7f986-1da4-4c20-a8ce-728d746166a0" name="Propulsion System">
-              <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
-                  id="5352913b-34e3-4d07-b8de-d27509aa0dfe" targetElement="#2c204b2f-7dcc-483f-b18e-80ce65318009"
-                  sourceElement="#28c7f986-1da4-4c20-a8ce-728d746166a0"/>
-              <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
-                  id="d215c2d8-c5c4-4a22-b813-c6d9b7e0812f" targetElement="#048846be-8760-4ac0-b531-1db0d68b76b3"
-                  sourceElement="#28c7f986-1da4-4c20-a8ce-728d746166a0"/>
-              <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
-                  id="cdb55b1f-b247-45e8-a9a1-9b0ba3fa52a9" targetElement="#5cdc0542-097e-4d1e-a88b-76fa954dc0ab"
-                  sourceElement="#28c7f986-1da4-4c20-a8ce-728d746166a0"/>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="579c82a4-7109-45a0-b5db-70d11d4438e3" name="Power Management System">
@@ -5586,6 +5720,20 @@
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="9815207d-5f1b-4b08-87dc-e00cb0888ea3" targetElement="#75341b89-815a-494d-8894-885f152cb21d"
                   sourceElement="#579c82a4-7109-45a0-b5db-70d11d4438e3"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="decf39ea-d950-4695-9a6d-7326a0451fcd" name="PWR_OUT" orientation="OUT"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="ae322f88-900e-4de7-b471-68fc9aea57e5" name="CP 2" orientation="OUT">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="353b511e-3985-4ec3-ab97-cb20d11e017b" targetElement="#15fc291b-5b59-4737-b526-544b1e38248d"
+                    sourceElement="#ae322f88-900e-4de7-b471-68fc9aea57e5"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="ca8cd175-5310-457b-90b4-48efcab75768" name="UART_IN" orientation="IN">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="64c61f86-ee5d-4fd7-8b1a-bb8b37b4b90d" targetElement="#15fc291b-5b59-4737-b526-544b1e38248d"
+                    sourceElement="#ca8cd175-5310-457b-90b4-48efcab75768"/>
+              </ownedFeatures>
             </ownedLogicalComponents>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="550f0168-e82e-4589-81fd-af08681d74e7" name="Communication System">
@@ -5598,6 +5746,41 @@
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="2c16ed6a-6bbc-4c82-9ade-eb5463c77583" targetElement="#8531f3b2-848d-47cb-a228-f7c0f43aea4e"
                   sourceElement="#550f0168-e82e-4589-81fd-af08681d74e7"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="caa9bae0-e307-4e77-bc71-4a1d9c70f900" name="PWR_IN" orientation="IN"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="5fdde17d-cf2c-4e24-af4c-85e9df73b584" name="RF_IN" orientation="IN"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="f546a42c-1ef5-4aeb-90b3-e2bd15c1569f" name="ETH_OUT" orientation="OUT"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="2ae5c5a9-8dea-446c-920e-19b075dcae61" name="RF_OUT" orientation="OUT"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="15453c83-3ed8-481a-90cf-3de6669e5ba1" name="ETH_IN" orientation="IN"/>
+            </ownedLogicalComponents>
+            <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
+                id="28c7f986-1da4-4c20-a8ce-728d746166a0" name="Propulsion System">
+              <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+                  id="d215c2d8-c5c4-4a22-b813-c6d9b7e0812f" targetElement="#048846be-8760-4ac0-b531-1db0d68b76b3"
+                  sourceElement="#28c7f986-1da4-4c20-a8ce-728d746166a0"/>
+              <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+                  id="cdb55b1f-b247-45e8-a9a1-9b0ba3fa52a9" targetElement="#5cdc0542-097e-4d1e-a88b-76fa954dc0ab"
+                  sourceElement="#28c7f986-1da4-4c20-a8ce-728d746166a0"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="4683209b-ff3d-4100-a234-2baa6c671492" name="CP 1" orientation="IN">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="f88c5f16-68aa-4589-99a7-1f4c0021a428" targetElement="#9a7ac4be-5c5b-47ed-8b9d-55ff02da3d83"
+                    sourceElement="#4683209b-ff3d-4100-a234-2baa6c671492"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="e1092ebb-9bc2-414f-ad14-930a9a4b2155" name="PWR_IN" orientation="IN"
+                  kind="FLOW"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                  id="53b67c6a-7349-4dd9-b5f3-a6b9bfb3bdba" name="CAN_OUT" orientation="OUT"
+                  kind="FLOW">
+                <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                    id="e42123db-fe8b-4a81-9735-ddb5b8c8d50d" targetElement="#680c0d82-db78-4616-b1ed-d2861224363d"
+                    sourceElement="#53b67c6a-7349-4dd9-b5f3-a6b9bfb3bdba"/>
+              </ownedFeatures>
             </ownedLogicalComponents>
           </ownedLogicalComponents>
           <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
@@ -5623,6 +5806,9 @@
                 name="Report Generation" abstractType="#68771a7b-0163-4270-a853-d23f5a69312c"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="96797d98-3492-47d4-a62f-663bd2838adc"
                 name="Operator Results Interface" abstractType="#03536e85-47a1-462a-82c6-a7f357647a2e"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                id="12fee97e-8d6f-400b-a683-964eddb36e9c" name="ETH_IN" orientation="IN"
+                kind="FLOW"/>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
                 id="ee5314a8-2338-4d75-8ef3-e49f2637cffd" name="Data Upload Manager">
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
